@@ -1,2 +1,2 @@
 javac Main.java
-java Main %~f1 > %~f2
+java Main %~f1 > %2
