@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+use dynarc[int];
+
+int main() {
+	dynarc_int numbers;
+	numbers = {1, 1, 2, 3, 4, 5};
+	
+	for(int i = 0; i < numbers.len; i++) printf("%d", numbers[i]); printf("\n");
+
+	numbers.pop();
+
+	printf("%d", numbers.len);
+	printf("\n");
+
+	for(int i = 0; i < numbers.len; i++) printf("%d", numbers[i]); printf("\n");
+
+	numbers.push(6);
+
+	for(int i = 0; i < numbers.len; i++) printf("%d", numbers[i]); printf("\n");
+	
+	numbers.removeN(1, 2);
+
+	for(int i = 0; i < numbers.len; i++) printf("%d", numbers[i]); printf("\n");
+	printf("%d", numbers.len);
+	printf("\n");
+
+}
