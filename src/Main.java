@@ -1,3 +1,11 @@
+/*
+    Copyright (C) 2019, 2020 Ashwin Godbole
+    
+    This file is licensed under the GNU GPLv3. For more information on the terms
+    of the license, see the file named LICENSE in the repository.
+*/
+
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
