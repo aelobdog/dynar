@@ -1,22 +1,22 @@
 # Dynarc
 Dynarc [Dynamic Arrays in C] is a program/ system that enables/ enhances the usability of dynamic arays in C.
   
-### Syntax:
-  -Declaration of the dynamic array base data types (do this outside all functions, preferably just below the ```#include``` lines) (must be any combination of ```int, float, char, double```
+### Syntax
+  Declaration of the dynamic array base data types (do this outside all functions, preferably just below the ```#include``` lines) (must be any combination of ```int, float, char, double```
    ```use dynarc [float, int];```  
-  -Declaring a dynamic array
+  Declaring a dynamic array
   ```// For example, a dynamic array of base type float would be decalred as: 
     dynarc_float constants;
   ```
-  -Initialization for the first time can be done in bulk as:
+  Initialization for the first time can be done in bulk as:
   ```
     constants = {3.14, 1.618};
   ```
-  -Alternatively, elements can always be manually entered:
+  Alternatively, elements can always be manually entered:
   ```
     constants[2] = 6.28;
   ```
-  *There is an inbuilt length variable that can be accessed to retrieve the length of the array at any time
+  There is an inbuilt length variable that can be accessed to retrieve the length of the array at any time
   ```
   // The length can be accessed by using 
      constants.len
@@ -37,7 +37,7 @@ Dynarc [Dynamic Arrays in C] is a program/ system that enables/ enhances the usa
     }
   ```
      
-  -The list of functions that go along with these dynamic arrays that you can use are:
+  The list of functions that go along with these dynamic arrays that you can use are:
   1. ```ARRAY_NAME.pop() //removes the last element in the array - the (length-1)th element```
   
   2. ```ARRAY_NAME.push(value) //adds the "value" to the end of the array```
