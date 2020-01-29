@@ -2,7 +2,7 @@
 Dynarc [Dynamic Arrays in C] is a program/ system that enables/ enhances the usability of dynamic arays in C.
   
 ### Syntax
-  Declaration of the dynamic array base data types (do this outside all functions, preferably just below the ```#include``` lines) (must be any combination of 
+  Declaration of the dynamic array base data types (do this outside all functions, preferably just below the ```#include``` lines) (must be any combination of the following)
   ```
   int, float, char, double
   ```
