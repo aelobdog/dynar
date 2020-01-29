@@ -4,11 +4,11 @@ Dynarc [Dynamic Arrays in C] is a program/ system that enables/ enhances the usa
 ### Syntax
   Declaration of the dynamic array base data types (do this outside all functions, preferably just below the ```#include``` lines) (must be any combination of the following)
    ```
-    int, float, char, double
+     int, float, char, double
    ```
   For example, you may want float and int dynamic arrays so you can type the following.
    ```
-    use dynarc [float, int];
+     use dynarc [float, int];
    ```  
   Declaring a dynamic array
   ```// For example, a dynamic array of base type float would be decalred as: 
