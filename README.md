@@ -1,7 +1,7 @@
 # Dynarc
 Dynarc [Dynamic Arrays in C] is a program/ system that enables/ enhances the usability of dynamic arays in C.
 
-### Usage Instructions:
+### Usage Instructions [I'm working towards making this more user friendly]:
   To run compile the code that you have written,
   1. ensure that you move the modcc script (.sh / .cmd depending on what operating system you are using)
      to the directory with your source code.
@@ -12,7 +12,6 @@ Dynarc [Dynamic Arrays in C] is a program/ system that enables/ enhances the usa
    * run the executable
      
   3. For Non-Windows users, I don't have a script as of now, so please contribute !
-  
   
 ### Documentation for Syntax:
   *Declaration of the dynamic array base data types (do this outside all functions, preferably just below the ```#include``` lines) (must be any combination of ```int, float, char, double```
