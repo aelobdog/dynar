@@ -55,17 +55,10 @@ Dynarc [Dynamic Arrays in C] is a program/ system that enables/ enhances the usa
   2. ```ARRAY_NAME.push(value) //adds the "value" to the end of the array```
   
   3. ```ARRAY_NAME.remove(index) //deletes the value stored at that index in the array.```
-      
-     Be warned that deleting only resets the value at that index to 0, it does not truly delete the value. This WILL be fixed later.
      
   4. ```ARRAY_NAME.insert(value, index)```
-  
-     Be warned that inserting only sets the value at that index to "value", it does not truly insert the value. This WILL be fixed later.
      
   5. ```ARRAY_NAME.removeN(value, N) // deletes the first N instances of the "value" from the array.```
-  
-  Be warned that deleting only resets the value at that index to 0, it does not truly delete the value. This WILL be fixed later.
-  
   
   
 If you want any particular feature to be added to the next release, please let me know !
