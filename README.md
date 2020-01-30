@@ -12,7 +12,7 @@ Dynar is a program/ system that enables/ enhances the usability of dynamic resiz
    ```  
   Declaring a dynamic resizable array
   ```// For example, a dynamic resizable array of base type float would be decalred as: 
-    dynarc float constants;
+    dynar float constants;
   ```
   Initialization for the first time can be done in bulk as:
   ```
