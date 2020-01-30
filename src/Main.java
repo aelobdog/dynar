@@ -1,20 +1,20 @@
 /*
     Copyright (C) 2019, 2020 Ashwin Godbole
     
-    This file is part of DYNARC.
+    This file is part of DYNAR.
     
-    DYNARC is free software: you can redistribute it and/or modify
+    DYNAR is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    DYNARC is distributed in the hope that it will be useful,
+    DYNAR is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with DYNARC.  If not, see <https://www.gnu.org/licenses/>.
+    along with DYNAR.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 
@@ -32,7 +32,7 @@ public class Main {
     private static String[] types;
     private static ArrayList<String> names = new ArrayList<>(5);
     private static Map<String, String> namesAndTypes = new HashMap<>();
-    private static String structDec = "struct dynarc_TYPE {\n\tTYPE* array;\n\tint len;\n\tint size;\n};\n";
+    private static String structDec = "struct dynar_TYPE {\n\tTYPE* array;\n\tint len;\n\tint size;\n};\n";
     private static String arrayDec = "NAME.array = (TYPE *)malloc(10 * sizeof(TYPE));\nNAME.len = 0;\nNAME.size = 10;\n";
     private static String initStatement = "NAME[iterator] = VALUE;\n";
     private static String _1ArgFunction = "FUNCTION_CALL_TYPE(&ARG1);\n";
@@ -42,75 +42,75 @@ public class Main {
 
     //------------------------------------------------------------------------------------------------------------------
     private static String importantFunctions =
-            "void manage_memory_TYPE(struct dynarc_TYPE *dynarc_NAME) {\n" +
-            "    if(dynarc_NAME->len == dynarc_NAME->size) {\n" +
-            "        dynarc_NAME->size += 15;\n" +
-            "        TYPE* tempArray = (TYPE *)malloc(dynarc_NAME->size * sizeof(TYPE));\n" +
-            "        for(int i = 0; i < dynarc_NAME->len; i++) {\n" +
-            "            tempArray[i] = dynarc_NAME->array[i];\n" +
+            "void manage_memory_TYPE(struct dynar_TYPE *dynar_NAME) {\n" +
+            "    if(dynar_NAME->len == dynar_NAME->size) {\n" +
+            "        dynar_NAME->size += 15;\n" +
+            "        TYPE* tempArray = (TYPE *)malloc(dynar_NAME->size * sizeof(TYPE));\n" +
+            "        for(int i = 0; i < dynar_NAME->len; i++) {\n" +
+            "            tempArray[i] = dynar_NAME->array[i];\n" +
             "        }\n" +
-            "        free(dynarc_NAME->array);\n" +
-            "        dynarc_NAME->array = tempArray;\n" +
+            "        free(dynar_NAME->array);\n" +
+            "        dynar_NAME->array = tempArray;\n" +
             "        tempArray = NULL;\n" +
             "        free(tempArray);\n" +
             "    }\n" +
             "\n" +
-            "    else if(dynarc_NAME->len == dynarc_NAME->size / 2) {\n" +
-            "        dynarc_NAME->size = (dynarc_NAME->size / 2) + 5;\n" +
-            "        TYPE* tempArray = (TYPE *)malloc(dynarc_NAME->size * sizeof(TYPE));\n" +
-            "        for(int i = 0; i < dynarc_NAME->len; i++) {\n" +
-            "            tempArray[i] = dynarc_NAME->array[i];\n" +
+            "    else if(dynar_NAME->len == dynar_NAME->size / 2) {\n" +
+            "        dynar_NAME->size = (dynar_NAME->size / 2) + 5;\n" +
+            "        TYPE* tempArray = (TYPE *)malloc(dynar_NAME->size * sizeof(TYPE));\n" +
+            "        for(int i = 0; i < dynar_NAME->len; i++) {\n" +
+            "            tempArray[i] = dynar_NAME->array[i];\n" +
             "        }\n" +
-            "        free(dynarc_NAME->array);\n" +
-            "        dynarc_NAME->array = tempArray;\n" +
+            "        free(dynar_NAME->array);\n" +
+            "        dynar_NAME->array = tempArray;\n" +
             "        tempArray = NULL;\n" +
             "        free(tempArray);\n" +
             "    }\n" +
             "}\n" +
             "\n" +
-            "void pop_TYPE(struct dynarc_TYPE *dynarc_NAME) {\n" +
-            "    manage_memory_TYPE(dynarc_NAME);\n" +
-            "    dynarc_NAME->array[dynarc_NAME->len - 1] = 0;\n" +
-            "    dynarc_NAME->len--;\n" +
+            "void pop_TYPE(struct dynar_TYPE *dynar_NAME) {\n" +
+            "    manage_memory_TYPE(dynar_NAME);\n" +
+            "    dynar_NAME->array[dynar_NAME->len - 1] = 0;\n" +
+            "    dynar_NAME->len--;\n" +
             "}\n" +
             "\n" +
-            "void del_TYPE(struct dynarc_TYPE *dynarc_NAME, int index) {\n" +
-            "    if(index >= dynarc_NAME->len)\n" +
+            "void del_TYPE(struct dynar_TYPE *dynar_NAME, int index) {\n" +
+            "    if(index >= dynar_NAME->len)\n" +
             "        printf(\"Tyring to delete a non-existent element !\");\n" +
             "    else {\n" +
-            "        if(index == dynarc_NAME->len - 1) {\n" +
-            "            manage_memory_TYPE(dynarc_NAME);\n" +
-            "            dynarc_NAME->len--;\n" +
+            "        if(index == dynar_NAME->len - 1) {\n" +
+            "            manage_memory_TYPE(dynar_NAME);\n" +
+            "            dynar_NAME->len--;\n" +
             "        }\n" +
-            "        dynarc_NAME->array[index] = 0;\n" +
+            "        dynar_NAME->array[index] = 0;\n" +
             "    }\n" +
             "}\n" +
             "\n" +
-            "void push_TYPE(struct dynarc_TYPE *dynarc_NAME, TYPE value) {\n" +
-            "    manage_memory_TYPE(dynarc_NAME);\n" +
-            "    dynarc_NAME->array[dynarc_NAME->len] = value;\n" +
-            "    dynarc_NAME->len++;\n" +
+            "void push_TYPE(struct dynar_TYPE *dynar_NAME, TYPE value) {\n" +
+            "    manage_memory_TYPE(dynar_NAME);\n" +
+            "    dynar_NAME->array[dynar_NAME->len] = value;\n" +
+            "    dynar_NAME->len++;\n" +
             "}\n" +
             "\n" +
-            "void insert_TYPE(struct dynarc_TYPE *dynarc_NAME, TYPE value, int index) {\n" +
-            "    if(index > dynarc_NAME->len)\n" +
+            "void insert_TYPE(struct dynar_TYPE *dynar_NAME, TYPE value, int index) {\n" +
+            "    if(index > dynar_NAME->len)\n" +
             "        printf(\"Trying to insert an element outside the array !\");\n" +
             "    else {\n" +
-            "        manage_memory_TYPE(dynarc_NAME);\n" +
-            "        dynarc_NAME->array[index] = value;\n" +
-            "        dynarc_NAME->len++;\n" +
+            "        manage_memory_TYPE(dynar_NAME);\n" +
+            "        dynar_NAME->array[index] = value;\n" +
+            "        dynar_NAME->len++;\n" +
             "    }\n" +
             "}\n" +
             "\n" +
-            "void delN_TYPE(struct dynarc_TYPE *dynarc_NAME, TYPE value, int number) {\n" +
-            "    if(number >= dynarc_NAME->len)\n" +
+            "void delN_TYPE(struct dynar_TYPE *dynar_NAME, TYPE value, int number) {\n" +
+            "    if(number >= dynar_NAME->len)\n" +
             "        printf(\"Trying to delete more elements than there are in the array !\");\n" +
             "    else {\n" +
             "        int i = 0;\n" +
             "        int j = 0;\n" +
-            "        for(; i < dynarc_NAME->len && j < number; i++) {\n" +
-            "            if(dynarc_NAME->array[i] == value) {\n" +
-            "                dynarc_NAME->array[i] = 0;\n" +
+            "        for(; i < dynar_NAME->len && j < number; i++) {\n" +
+            "            if(dynar_NAME->array[i] == value) {\n" +
+            "                dynar_NAME->array[i] = 0;\n" +
             "                j++;\n" +
             "            }\n" +
             "        }\n" +
@@ -125,7 +125,7 @@ public class Main {
         return false;
     }
 
-    private static boolean isDeclaredDynarc(String name) {
+    private static boolean isDeclareddynar(String name) {
         for(int i = 0; i < names.size(); i++) {
             if(name.equals(names.get(i))) return true;
         }
@@ -155,7 +155,7 @@ public class Main {
         String arrayType = "";
         String arrayName = "";
         int i;
-        int indexUscore = line.indexOf("dynarc_") + "dynarc_".length();
+        int indexUscore = line.indexOf("dynar ") + "dynar ".length();
         for(i = indexUscore; isLetter(line.charAt(i)); i++) {
             arrayType = arrayType + line.charAt(i);
             indexUscore = indexUscore + 1;
@@ -176,7 +176,7 @@ public class Main {
     private static String arrayInitialization(String line) {
         String out = "";
         String name = line.substring(0, line.indexOf("=")).trim();
-        if(!isDeclaredDynarc(name)) {
+        if(!isDeclareddynar(name)) {
             System.err.println("Oops. Looks like [" + name + "] was not declared LL!");
             System.exit(1);
         }
@@ -194,7 +194,7 @@ public class Main {
     private static String setSingleValue(String line) {
         String out;
         String name = line.substring(0, line.indexOf("[")).trim();
-        if(!isDeclaredDynarc(name)) {
+        if(!isDeclareddynar(name)) {
             System.err.println("Oops. Looks like [" + name + "] was not declared !");
             System.exit(1);
         }
@@ -203,7 +203,7 @@ public class Main {
         out = initStatement;
         out = out.replace("NAME", name).replace("iterator", index).replace("VALUE", value);
         out = out + name + ".len = " + name + ".len <= " + index + " ? " + index + " + 1 : " + name + ".len;\n";
-        out = out + "manage_memory_TYPE(&dynarc_NAME);\n".replace("TYPE", namesAndTypes.get(name)).replace("dynarc_NAME", name);
+        out = out + "manage_memory_TYPE(&dynar_NAME);\n".replace("TYPE", namesAndTypes.get(name)).replace("dynar_NAME", name);
         return out;
     }
 
@@ -231,7 +231,7 @@ public class Main {
         if(args.length == 0) {
             System.out.println("Trying to compile which file ? Read the Documentation !");
         }
-        //String filename = "D:\\Data\\CODE\\JavaCode\\Dynarc\\src\\code.c";
+        //String filename = "D:\\Data\\CODE\\JavaCode\\dynar\\src\\code.c";
         Scanner sc = null;
         try {
             sc = new Scanner(new File(filename));
@@ -247,7 +247,7 @@ public class Main {
 
                 if (line.contains("use"))
                     writeOutput(structureDeclaration(line), "");
-                else if (line.contains("dynarc_"))
+                else if (line.contains("dynar "))
                     writeOutput(arrayDeclaration(line), "");
                 else if (line.contains(".pop"))
                     writeOutput(_1ArgFunCall(line, "pop"), "");
