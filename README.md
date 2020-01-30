@@ -1,5 +1,5 @@
-# Dynarc
-Dynarc [Dynamic Arrays in C] is a program/ system that enables/ enhances the usability of dynamic arays in C.
+# DYNAR
+Dynar is a program/ system that enables/ enhances the usability of dynamic resizable arrays in C.
   
 ### Syntax
   Declaration of the dynamic array base data types (do this outside all functions, preferably just below the ```#include``` lines) (must be any combination of the following)
@@ -8,11 +8,11 @@ Dynarc [Dynamic Arrays in C] is a program/ system that enables/ enhances the usa
    ```
   For example, you may want float and int dynamic arrays so you can type the following.
    ```
-     use dynarc [float, int];
+     use dynar [float, int];
    ```  
-  Declaring a dynamic array
-  ```// For example, a dynamic array of base type float would be decalred as: 
-    dynarc_float constants;
+  Declaring a dynamic resizable array
+  ```// For example, a dynamic resizable array of base type float would be decalred as: 
+    dynarc float constants;
   ```
   Initialization for the first time can be done in bulk as:
   ```
