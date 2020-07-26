@@ -1,4 +1,4 @@
-# DYNAR
+# DYNamic ARrays - DYNAR
 Dynar is a program/ system that enables/ enhances the usability of dynamic resizable arrays in C.
   
 ### Syntax
